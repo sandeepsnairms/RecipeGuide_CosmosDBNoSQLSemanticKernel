@@ -13,7 +13,7 @@ This repository provides a demo showcasing the usage of the RAG pattern for inte
 This demo is built using .NET and utilizes the following SDKs:
 -	Microsoft Semantic Kernel SDK
 -	Azure Cosmos DB SDK
--	Azure Open AI Services SDK
+
 
 ## Getting Started
 When you run the application for the first time, it will connect to Cosmos DB and report that there are no recipes available, as we have not uploaded any recipes yet.
@@ -52,7 +52,11 @@ To begin, follow these steps:
     }
     ```
 
-3)	**Vectorize and Upload Recipes to Azure Cognitive Search:** The JSON data uploaded to Cosmos DB is not yet ready for efficient integration with Open AI. To use the RAG pattern, we need to find relevant recipes from Cosmos DB. Embeddings help us achieve this. To accomplish the task, we will utilize the vector search capability in Azure Cognitive Search to search for embeddings. Semantic Kernel will create the required vector search index in Azure Cognitive Search, vectorize the recipes and upload the vectors to Azure Cognitive Search. Selecting the second option in the application will perform all these activities.
+3)	**Vectorize and Upload Recipes to Azure Cognitive Search:** The JSON data uploaded to Cosmos DB is not yet ready for efficient integration with Open AI. To use the RAG pattern, we need to find relevant recipes from Cosmos DB. Embeddings help us achieve this. To accomplish the task, we will utilize the vector search capability in Azure Cognitive Search to search for embeddings. Semantic Kernel will
+    - Create the required vector search index in Azure Cognitive Search
+    - Vectorize the recipes and upload the vectors to Azure Cognitive Search.
+    
+    Selecting the second option in the application will perform all these activities.
 
     #### Generating Embeddings  and saving it to Azure Cognitive Search
 
@@ -81,12 +85,12 @@ To begin, follow these steps:
 
     
 4)	**Perform Search:** The third option in the application runs the search based on the user query. Semantic Kernel will
-- Convert teh user query to an embedding using the Open AI service. 
-- Send the embedding to Azure Cognitive Search to perform a vector search.
+    - Convert the user query to an embedding using the Open AI service.
+    - Send the embedding to Azure Cognitive Search to perform a vector search.
+    
+    The vector search attempts to find vectors that are close to the supplied vector and returns a list of items. We utilize the search results to retrieve the recipe documents from Cosmos DB, convert them to strings.
 
-The vector search attempts to find vectors that are close to the supplied vector and returns a list of items. We utilize the search results to retrieve the recipe documents from Cosmos DB, convert them to strings.
-
-Finally  the Semantic Kernel is used generate a  chat completion  prompts. During this process, we  include the shortlisted recipes as system prompt. The user query is passed as user message and the instructions are provided in the chat  constructor .
+Finally  the Semantic Kernel is used generate a  chat completions. During this process, we  include the shortlisted recipes as system message, the user query as user message and the instructions are provided in the chat  constructor.
 
     
 
