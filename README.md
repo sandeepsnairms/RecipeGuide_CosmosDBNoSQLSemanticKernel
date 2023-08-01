@@ -1,5 +1,5 @@
 # Integrate Open AI Services with Cosmos DB: RAG pattern
-This repository provides a demo showcasing the usage of the RAG pattern for integrating Azure Open AI services with custom data in Azure Cosmos DB. The goal is to limit the responses from Open AI services based on recipes stored in Cosmos DB.
+This repository provides a demo showcasing the usage of the RAG pattern for integrating Azure Open AI services with custom data in Azure Cosmos DB using Semantic Kernel. The goal is to limit the responses from Open AI services based on recipes stored in Cosmos DB.
 
 ## Prerequsites
 - Azure Cosmos DB NoSQL Account
@@ -90,7 +90,7 @@ To begin, follow these steps:
     
     The vector search attempts to find vectors that are close to the supplied vector and returns a list of items. We utilize the search results to retrieve the recipe documents from Cosmos DB, convert them to strings.
 
-Finally  the Semantic Kernel is used generate a  chat completions. During this process, we  include the shortlisted recipes as system message, the user query as user message and the instructions are provided in the chat  constructor.
+    Finally  the Semantic Kernel is used generate a  chat completions. During this process, we  include the shortlisted recipes as system message, the user query as user message and the instructions are provided in the chat  constructor.        
 
     
 
