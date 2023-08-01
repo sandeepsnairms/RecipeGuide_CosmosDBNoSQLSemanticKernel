@@ -90,8 +90,7 @@ To begin, follow these steps:
     
     The vector search attempts to find vectors that are close to the supplied vector and returns a list of items. We utilize the search results to retrieve the recipe documents from Cosmos DB, convert them to strings.
 
-    Finally  the Semantic Kernel is used generate a  chat completions. During this process, we  include the shortlisted recipes as system message, the user query as user message and the instructions are provided in the chat  constructor.        
-
+    Finally  the Semantic Kernel is used generate a  chat completions. During this process, we  include the shortlisted recipes as system message, the user query as user message and the instructions are provided in the chat  constructor.
     
 
     #### Performing Vector Search in Azure Cognitive Search
